@@ -50,3 +50,4 @@ jinfo -flag CICompilerCount 5908
 java -XX:CICompilerCount=6 -XX:+PrintCompilation Main 500 -XX:CompileThreshold=1000
 java -XX:CICompilerCount=6 -XX:+PrintCompilation -XX:PermSize=100 Main 5	//warning in Java-8
 java -XX:CICompilerCount=6 -XX:-PrintCompilation -XX:MaxPermSize=100 Main   //warning in Java-8
+
