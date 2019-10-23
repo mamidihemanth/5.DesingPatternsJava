@@ -6,18 +6,18 @@ java.util.concurrent.atomic
 	AtomicInteger
 	AtomicIntegerArray
 AtomicIntegerFieldUpdater<T> 	
+AtomicLongFieldUpdater<T>	
+AtomicReferenceFieldUpdater<T,V> 	
 	AtomicLong
 	AtomicLongArray
-AtomicLongFieldUpdater<T>	
 AtomicMarkableReference<V> 	
 AtomicReference<V>
 AtomicReferenceArray<E>
-AtomicReferenceFieldUpdater<T,V> 	
 AtomicStampedReference<V> 	
-DoubleAccumulator 	
-DoubleAdder
-LongAccumulator 	
-LongAdder
+	DoubleAccumulator 	
+	DoubleAdder
+	LongAccumulator
+	LongAdder
 
 
 https://kb.epam.com/display/GDOKB/JPoP+Batch#2+Repos

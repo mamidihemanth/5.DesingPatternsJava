@@ -2,11 +2,30 @@ package javas.concurrent.atomic;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
+import java.util.concurrent.atomic.DoubleAccumulator;
+import java.util.concurrent.atomic.DoubleAdder;
 
 public class A_AtomicVariables {
 	public static void main(String[] args) throws Exception{
 		//testAtomicVariable();
-		atomicIntegerArray();
+		//atomicIntegerArray();
+		//doubleAdder();
+		doubleAccumulator();
+	}
+
+	private static void doubleAccumulator() {
+		DoubleAccumulator num  = new DoubleAccumulator(Double::sum, 0L); 
+	    num.accumulate(2); 
+	    num.accumulate(10); 
+	    System.out.println(num.get());
+	}
+
+	private static void doubleAdder() {
+		DoubleAdder num = new DoubleAdder(); 
+        num.add(42); 
+        num.add(10); 
+        num.sum(); 
+        System.out.println(num);
 	}
 
 	public static final AtomicIntegerArray array = new AtomicIntegerArray(20);

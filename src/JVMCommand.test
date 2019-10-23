@@ -2,10 +2,10 @@ Important Java Packages:
 ========================
 java.util.concurrent					:DONE
 java.util.concurrent.atomic				:DONE
-java.util.concurrent.locks
+java.util.concurrent.locks				:DONE
 
-java.util.function
-java.util.stream
+java.util.function						:DONE
+java.util.stream						:
 
 java.time
 java.time.chrono
