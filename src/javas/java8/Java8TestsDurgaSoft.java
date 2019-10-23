@@ -26,11 +26,11 @@ interface JagadishInterfae{
 
 @FunctionalInterface
 interface ConstructorMethodReference{
-	public abstract Java8Tests getInstance();
+	public abstract Java8TestsDurgaSoft getInstance();
 }
 
-public class Java8Tests {
-	Java8Tests(){
+public class Java8TestsDurgaSoft {
+	Java8TestsDurgaSoft(){
 		System.out.println("TestClass.TestClass() CONSTUCTOR");
 	}
 	
@@ -102,13 +102,13 @@ public class Java8Tests {
 		
 //METHOD References
 		//Static method references.
-		JagadishInterfae myFuncInterface = Java8Tests::testDisplayStatic;
+		JagadishInterfae myFuncInterface = Java8TestsDurgaSoft::testDisplayStatic;
 		myFuncInterface.doReferredWork();
 		//Instance method references.
-		myFuncInterface = new Java8Tests()::testDisplayInstance;
+		myFuncInterface = new Java8TestsDurgaSoft()::testDisplayInstance;
 		myFuncInterface.doReferredWork();
 		//Constructor reference.
-		ConstructorMethodReference methodRefere= Java8Tests::new;
+		ConstructorMethodReference methodRefere= Java8TestsDurgaSoft::new;
 		System.out.println(methodRefere.getInstance());
 		
 		
