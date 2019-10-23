@@ -15,34 +15,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-//WorkStealing, forkJoin Algorithm
 
-//JAVA-4: Assertions
-//JAVA-5: forEach, varArgs, static_Import, AutoBoxing, Enum, Covariant_return, Annotaton, Generics
-//JAVA-6: premain method
-//JAVA-7: String_in_switch, Binary_liternals, try_with_resources, Multiple_Exception_catch, _ in_numbers, Fork Join
-/*
-//JAVA-8: FunctionalProgramming, 
- * 		  Method references, 
- * 		  Strem API, 
- *        filter, 
- *        base-64 encoding, 
- *        Default_methods & static Methods in Interface,
- *        forEach
- *        Collectors
- *        StringJonier
- *        Optional
- *        Nashrom JavaScript
- *        Parallel Array Sorting
- *        Type Inference
- *        Method Parameter Reflection
- *        TypeAnnotation and Repeting annotation
- *        JDBC Improvements
- *        JAVA-IO Improvements
- *        Java Concurrency Improvements
-*/
-//Documentation..
-//SemaPhores..
 
 
 public class TestClass {

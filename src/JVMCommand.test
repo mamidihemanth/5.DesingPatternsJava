@@ -1,3 +1,28 @@
+JAVA-8 Features:
+================
+JAVA-4: Assertions
+JAVA-5: forEach, varArgs, static_Import, AutoBoxing, Enum, Covariant_return, Annotaton, Generics
+JAVA-6: premain method
+JAVA-7: String_in_switch, Binary_liternals, try_with_resources, Multiple_Exception_catch, _ in_numbers, Fork Join
+JAVA-8: FunctionalProgramming, 
+	Method references, 
+ 	Strem API, 	
+	filter, 
+	base-64 encoding, 
+	Default_methods & static Methods in Interface,
+	forEach
+	Collectors
+	StringJonier
+	Optional
+	Nashrom JavaScript
+	Parallel Array Sorting
+	Type Inference
+	Method Parameter Reflection
+	TypeAnnotation and Repeting annotation
+	JDBC Improvements
+	JAVA-IO Improvements
+	Java Concurrency Improvements
+
 Important Java Packages:
 ========================
 java.util.concurrent					:DONE
@@ -5,9 +30,9 @@ java.util.concurrent.atomic				:DONE
 java.util.concurrent.locks				:DONE
 
 java.util.function						:DONE
-java.util.stream						:
+java.util.stream						:DONE
 
-java.time
+java.time								:DONE
 java.time.chrono
 java.time.format
 java.time.temporal
