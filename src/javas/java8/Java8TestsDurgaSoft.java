@@ -1,5 +1,6 @@
 package javas.java8;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -10,6 +11,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,6 +54,7 @@ public class Java8TestsDurgaSoft {
 		
 //FUNCTIONAL INTERFACES
 		//PREDICATE (Special Case of Function...)
+		System.out.println("================ FUNCTIONAL INTERFACES ================");
 		Predicate<Integer> isLess = (I)-> I < 10;
 		Predicate<Integer> isEven = (I)-> I % 2==0;
 		Predicate<String> isJagadish = Predicate.isEqual("JAGADISH");
@@ -102,6 +105,7 @@ public class Java8TestsDurgaSoft {
 		
 //METHOD References
 		//Static method references.
+		System.out.println("================ METHOD REFERENCES ================");
 		JagadishInterfae myFuncInterface = Java8TestsDurgaSoft::testDisplayStatic;
 		myFuncInterface.doReferredWork();
 		//Instance method references.
@@ -113,6 +117,13 @@ public class Java8TestsDurgaSoft {
 		
 		
 //DATE TIME API ================
+		System.out.println("================ DATE TIME API ================");
+		System.out.println(Instant.now());
+		//Date to LocalDate
+		final LocalDateTime dateTime = LocalDateTime.ofInstant((new Date()).toInstant(), ZoneId.systemDefault());
+		System.out.println(dateTime.getMonth());
+		//LocalDate to Date.?? ZonedDateTime ..??
+
 		System.out.println(LocalDate.now().getMonthValue());
 		System.out.println(LocalTime.now());
 		System.out.println(LocalDateTime.now());
@@ -135,65 +146,10 @@ public class Java8TestsDurgaSoft {
 		ZonedDateTime dt = ZonedDateTime.now(zone);
 		System.out.println(dt);
 		System.out.println("//------------------------");
-		Map<Student, Student> studentSet = new HashMap<Student, Student>(1,0.1f);
-		for(int i=0;i<20;i++) {
-			//studentSet.put(new Student(i), new Student(i));
-		}
-		
-		/*
-		studentSet.add(new Student(1));
-		studentSet.add(new Student(2));
-		studentSet.add(new Student(3));
-		studentSet.add(new Student(4));
-		studentSet.add(new Student(5));
-		studentSet.add(new Student(6));
-		studentSet.add(new Student(7));
-		studentSet.add(new Student(8));
-		studentSet.add(new Student(9));
-		studentSet.add(new Student(10));
-		studentSet.add(new Student(11));
-		studentSet.add(new Student(12));
-		studentSet.add(new Student(13));
-		studentSet.add(new Student(14));
-		studentSet.add(new Student(15));
-		*/
 		
 		List<String> helloList = new ArrayList<String>();
 		helloList.forEach(System.out::print);
 		
 		
-	}
-}
-
-class Student implements Comparator<Integer>{
-	private int sid=0;
-	private int rollNo;
-	private String sname;
-	
-	public Student(int rollNo) {
-		this.rollNo = rollNo;
-	}
-	@Override
-	public String toString() {
-		return "[SID"+this.sid+", SNAME"+this.sname+"]";
-	}
-	@Override
-	public int hashCode() {
-		System.out.println("Student.hashCode()");
-		return 1;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		sid++;
-		for(int i=0;i<sid;i++) {
-			System.out.print(i+",");
-		}
-		System.out.println("");
-		return super.equals(obj);
-	}
-	@Override
-	public int compare(Integer o, Integer p) {
-		System.out.println("Student.compareTo()");
-		return p-o;
 	}
 }

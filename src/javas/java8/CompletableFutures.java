@@ -21,7 +21,7 @@ import java.util.function.Supplier;
 public class CompletableFutures {
 
 	private static int TIMER = (int) (Math.random()*10000)/2;
-	public static final Runnable r = () -> {
+	public static final Runnable RUNNABLE_WITH_DELAY = () -> {
 		try {
 			System.out.println("Started.."+TIMER);
 			Thread.sleep(TIMER);
@@ -33,7 +33,7 @@ public class CompletableFutures {
 		}
 	};
 
-	public static final Callable<Integer> c = () -> {
+	public static final Callable<Integer> CALLABLE_WITH_DELAY = () -> {
 		int TIMERS = (int) (Math.random()*10000)/2;
 		System.out.println("Started.."+TIMERS);
 		Thread.sleep(TIMERS);
@@ -84,7 +84,7 @@ public class CompletableFutures {
 		//1. Can't throw Exceptoin's or return value.
 		//2. Its Output value is unPredictable.
 		System.out.println("1****STARTED usingRunnable");
-		Thread t = new Thread(r);
+		Thread t = new Thread(RUNNABLE_WITH_DELAY);
 		t.start();
 		t.join();
 		System.out.println("1****ENDED usingRunnable");
@@ -94,8 +94,8 @@ public class CompletableFutures {
 		//Using ThreadGroup
 		System.out.println("2****STARTED usingThreadGroup");
 		ThreadGroup group1 = new ThreadGroup("GROUP1");
-		Thread t1= new Thread(group1, r);t1.start();
-		Thread t2= new Thread(group1, r);t2.start();
+		Thread t1= new Thread(group1, RUNNABLE_WITH_DELAY);t1.start();
+		Thread t2= new Thread(group1, RUNNABLE_WITH_DELAY);t2.start();
 		System.out.println(group1.activeCount());
 		System.out.println(group1.activeGroupCount());
 		t1.join();t2.join();
@@ -111,17 +111,17 @@ public class CompletableFutures {
 				t.start();
 			}
 		};
-		exec.execute(r);
-		exec.execute(r);
-		exec.execute(r);
+		exec.execute(RUNNABLE_WITH_DELAY);
+		exec.execute(RUNNABLE_WITH_DELAY);
+		exec.execute(RUNNABLE_WITH_DELAY);
 		System.out.println("4****ENDED usingExecutor");
 	}
 	
 	public void usingCallable() throws Exception{
 		System.out.println("3****STARTED usingCallable");
 		ExecutorService es= Executors.newCachedThreadPool();
-		Future<Integer> one= es.submit(c);
-		Future<Integer> two= es.submit(c);
+		Future<Integer> one= es.submit(CALLABLE_WITH_DELAY);
+		Future<Integer> two= es.submit(CALLABLE_WITH_DELAY);
 		System.out.println(one.get()+" - "+two.get()+" Got The future Object..!");
 		System.out.println("3****ENDED usingCallable");
 		es.shutdown();
@@ -150,11 +150,48 @@ public class CompletableFutures {
 		//ts.usingCallable();
 		//ts.usingExecutor();
 		//ts.usingSimpleCompletable();
-		ts.usingCompletable();
+		//usingCompletable();
+		//futuresWithTimeOut();
 	}
 
-	private void usingCompletable() throws Exception{
-		/*
+	private static void futuresWithTimeOut() throws Exception{
+		//1. Future with TimeOut
+		System.out.println("***************Futrues with timeOut");
+		ExecutorService es = Executors.newCachedThreadPool();
+		Future<Integer> future = es.submit(CALLABLE_WITH_DELAY);
+		Object obj = future.get(10,TimeUnit.SECONDS);
+		System.out.println(obj+"\n===========================");
+		
+		//1. List of FutureList with invokeAll
+		System.out.println("***************List of Callable & InvokeAll");
+		ExecutorService executor = Executors.newWorkStealingPool();
+		List<Callable<Integer>> callables = Arrays.asList(CALLABLE_WITH_DELAY,CALLABLE_WITH_DELAY);
+		List<Future<Integer>> futureList = executor.invokeAll(callables);
+		for(Future<Integer> each: futureList) {
+			System.out.println(each.get());
+		}
+		System.out.println("***************List of Callable via Streams");
+		//2. FutureList alternative way	
+		executor.invokeAll(callables)
+		.stream().map( fut-> { 
+			try {
+				return fut.get();
+			} catch (Exception e) {
+				throw new IllegalAccessError();
+			}
+		}).forEach(System.out::println);
+		
+		System.out.println("***************Schedule Service Executor");
+		ScheduledExecutorService sexecutor = Executors.newScheduledThreadPool(1);
+		ScheduledFuture<?> futureA = sexecutor.schedule(CALLABLE_WITH_DELAY, 3, TimeUnit.SECONDS);
+		System.out.println(System.nanoTime());
+		long remainingDelay = futureA.getDelay(TimeUnit.MILLISECONDS);
+		System.out.println(remainingDelay);
+		
+		sexecutor.scheduleAtFixedRate(RUNNABLE_WITH_DELAY, 0, 1, TimeUnit.SECONDS);
+	}
+
+	private static void usingCompletable() throws Exception{
 		System.out.println("****************thenApply");
 		CompletableFuture<Integer> java = CompletableFuture.supplyAsync(SUP);
 		CompletableFuture<Integer> completing = java.thenApply(FUN);
@@ -183,49 +220,6 @@ public class CompletableFutures {
 		CompletableFuture<Integer> java7 = CompletableFuture.supplyAsync(SUP);
 		CompletableFuture<Object> anyCompleted = CompletableFuture.anyOf(java6, java7);
 		System.out.println(anyCompleted.get());
-		*/
-		
-		//1. Future with TimeOut
-		/*
-		System.out.println("***************Callable");
-		ExecutorService es = Executors.newCachedThreadPool();
-		Future<Integer> future = es.submit(c);
-		Object obj = future.get(10,TimeUnit.SECONDS);
-		System.out.println(obj+"===========================");
-		*/
-		
-		//1. Future with List of Callables
-		ExecutorService executor = Executors.newWorkStealingPool();
-		List<Callable<Integer>> callables = Arrays.asList(c,c);
-		/*
-		List<Future<Integer>> futureList = executor.invokeAll(callables);
-		for(Future<Integer> each: futureList) {
-			System.out.println(each.get());
-		}
-		*/
-		
-		/*
-		executor.invokeAll(callables)
-				.stream().map( fut-> { 
-					try {
-						return fut.get();
-					} catch (Exception e) {
-						throw new IllegalAccessError();
-					}
-				}).forEach(System.out::println);
-	 */
-		//executor.invokeAll(callables).forEach(System.out::println);
-		System.out.println("================");
-		//executor.invokeAny(callables).floatValue();
-		System.out.println("================");
-		ScheduledExecutorService sexecutor = Executors.newScheduledThreadPool(1);
-		ScheduledFuture<?> futureA = sexecutor.schedule(c, 3, TimeUnit.SECONDS);
-		System.out.println(System.nanoTime());
-		long remainingDelay = futureA.getDelay(TimeUnit.MILLISECONDS);
-		System.out.println(remainingDelay);
-		
-		sexecutor.scheduleAtFixedRate(r, 0, 1, TimeUnit.SECONDS);
-		
 	}
 	
 	public Future<String> calculateAsync() throws InterruptedException {
@@ -240,8 +234,21 @@ public class CompletableFutures {
 	    return completableFuture;
 	}
 	
-	public void testMe3() {
-		//TimeUnit.SECONDS.sleep(1000);
-	}
 
 }
+
+
+/*
+ * Feedback.epam.com PMS
+ * JAN-JUNE
+ * JULY-DEC
+ * 28-OCT to Nov-30- WriteStage
+ * 					Summarize & Communicate
+ * 					Communicate
+ * 
+ * selfreview,
+ * 
+ * 
+ * mywall, give feedback
+ * 
+ */
