@@ -7,7 +7,7 @@
 1. [JVM Features & Commands](https://github.com/siripuramjagadishraj1/5.DesingPatternsJava8/tree/master/src)
 
 #### Java8 FunctionalProgramming, Stream & New Packages
-1. [Java-8 DurgaSoft](https://github.com/siripuramjagadishraj1/5.DesingPatternsJava8/blob/master/src/javas/java8/Java8TestsDurgaSoft.java)
+1. [Java-8 DurgaSoft(.java)](https://github.com/siripuramjagadishraj1/5.DesingPatternsJava8/blob/master/src/javas/java8/Java8TestsDurgaSoft.java)
 2. [Feature List](https://github.com/siripuramjagadishraj1/5.DesingPatternsJava8/tree/master/src/javas/java8)
 3. [New Packages](https://github.com/siripuramjagadishraj1/5.DesingPatternsJava8/tree/master/src)
 
