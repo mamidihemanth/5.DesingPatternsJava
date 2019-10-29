@@ -30,7 +30,7 @@ class WeatherObserver implements MyObserver{
 	}
 	
 	private void shodata() {
-		System.out.println("[Pressure: "+pressure+" Temperature:"+temeperature+" Humidity:"+humidity+"]");
+		System.out.println("[Pressure: "+this.pressure+" Temperature:"+this.temeperature+" Humidity:"+this.humidity+"]");
 	}
 }
 
