@@ -23,12 +23,10 @@ Chapter-1, 2, 3:
 
 * Tuning code cache.
 >java -XX:+PrintCodeCache Main 50 //Shows code cache
+
 Java-7: 32 or 48 MB
-Java-8: 240MB
-	InitialCodeCacheSize
-	ReservedCodeCacheSize
-	CodeCacheExpansionSize
-Eg: 
+
+Java-8: 240MB, [InitialCodeCacheSize, ReservedCodeCacheSize, CodeCacheExpansionSize]
 >java -XX:ReservedCodeCacheSize=28k -XX:+PrintCodeCache Main 5
 
 * JConsole: code cache observation.
