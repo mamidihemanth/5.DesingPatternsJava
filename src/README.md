@@ -1,7 +1,9 @@
 Important Commands:
 -------------------
 java -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal
+
 java -XX:+PrintCommandLineFlags -version
+
 java -client -XX:+PrintCompilation Main 5000
 
 Chapter-1, 2, 3:
@@ -14,7 +16,7 @@ Chapter-1, 2, 3:
 * JIT Compiler, Compilation is done by separate thread.
 * C1[1,2,3] and C2[4] Compilation Levels.
 * Profiling the Code: JVM know which level of compilation to use, this is called as profiling.<br>
-* $>java -XX:+PrintCompilation Main 10  [n=native methods, s=synchronized, %=code cached, !=>Exception Handling.]
+>java -XX:+PrintCompilation Main 10  [n=native methods, s=synchronized, %=code cached, !=>Exception Handling.]
 	
 * In remote JVMS:
 >java -XX:+UnlockDiagnosticVMOptions -XX:+LogCompilation Main 5000 // produces a Log file. to observe the output
