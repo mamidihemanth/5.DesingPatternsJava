@@ -126,16 +126,16 @@ Chapter-16:
 >java -XX:+PrintCommandLineFlags -version  //Tells you the default GC being used.
 
 Java Default GC's vs versions.
-  1. Serial 		      -XX:+UseSerialGC			(Older Java)
-  2. Parallel		      -XX:userParallelGC		(java-8)
-  3. Mostly Concurrent
-  	A. -XX:+UseConcMarkSweepGC				(java-9)
-  	B. -XX:+UseG1GC						(Introduced-6, Java-10)
+1. Serial 		      -XX:+UseSerialGC			(Older Java)
+2. Parallel		      -XX:userParallelGC		(java-8)
+3. Mostly Concurrent
+	1. -XX:+UseConcMarkSweepGC				(java-9)
+	2. -XX:+UseG1GC						(Introduced-6, Java-10)
 
 * String de-duplication.
  -XX:+UseStringDeduplication //Use this only in combination with G1 algorithm.(Garbage First)
 >java -XX:+PrintCommandLineFlags -XX:+UseG1GC -XX:+UseStringDeduplication Main 10
-JMC: Java Mission Control. [Open Source.]
+* JMC: Java Mission Control. [Open Source.]
 * Using a profiler. Eg:- JMC, Jprofiler, UR-Kit
 git clone .....
 
@@ -171,7 +171,7 @@ Features:
  3. Native Compiler (No JVM Required).
 Graal Compiler produces a JavaNative class file like .exe.
 * Run the example using java-11 with experimental features enabled.
-$ java -XX:-UnLockExperimentalVMOptins
+> java -XX:-UnLockExperimentalVMOptins
        -XX:+EnableJVMCI
        -XX:+UseJVMCICompiler Main 100
 
@@ -179,7 +179,7 @@ Chapter-24:
 -----------
 * Other JVM Choices [Kotlin, Groovy... etc.]
 * Bytecode in javap
-$ javap -v Main.class
+> javap -v Main.class
 * javap is a diassembler not a decompiler.
 
 Chapter-25:
