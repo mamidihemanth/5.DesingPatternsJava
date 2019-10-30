@@ -75,20 +75,21 @@ Chapter-10:
 -----------
 * String DeDuplication (in Future)
 * String-pool is implemented using hashmap and its size should be optimized.
-* >java -XX:+PrintStringTableStatistics
-* >java -XX:+PrintStringTableStatistics Main 100  //shows no of buckets..etc
+>java -XX:+PrintStringTableStatistics
+>java -XX:+PrintStringTableStatistics Main 100  //shows no of buckets..etc
 * String Table size can also be changed.
-* java -XX:+PrintStringTableStatistics -XX:StringTableSize=120121 Main 100  //No of buckets can be changed.
+>java -XX:+PrintStringTableStatistics -XX:StringTableSize=120121 Main 100  //No of buckets can be changed.
 * Default memory size=4GB, 2^32 bytes.
 Therefore, don't use maxHeapSize to change heap size, Rather set InitialHeapSize to improve speed of application.
 
-* java -XX:MaxHeapSize=600m -XX:+PrintStringTableStatistics -XX:StringTableSize=120121 Main 100
+>java -XX:MaxHeapSize=600m -XX:+PrintStringTableStatistics -XX:StringTableSize=120121 Main 100
 Default Memory Size=4GB => 2^32 bytes.
 
 Therefore, don't use MaxHeapSize to change heap size, rather set initial heap size to improve speed of application
 
-$ java -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal 
-$ java -XX:MaxHeapSize=1G -XX:InitialHeapSize=1G Main 100
+>java -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal 
+
+>java -XX:MaxHeapSize=1G -XX:InitialHeapSize=1G Main 100
 
 Chapter-11:
 -----------
@@ -113,20 +114,23 @@ Chapter-15:
 -----------
 * SoftLeak vs Memory Leak..?
 * Video 65,66 important code to observe GC in action.
-$ 
-$ jinfo -flag NewRatio 10692      //Old = 2*Young
-$ jinfo -flag SurvivorRatio 10692 //so, s1 = 1/8 Young Generation
-$ jinfo -flag MaxTenuringThreshold //15= Max, 16 implies only Young generation.
+
+>jinfo -flag NewRatio 10692      //Old = 2*Young
+
+>jinfo -flag SurvivorRatio 10692 //so, s1 = 1/8 Young Generation
+
+>jinfo -flag MaxTenuringThreshold //15= Max, 16 implies only Young generation.
 
 Chapter-16:
 -----------
-$ java -XX:+PrintCommandLineFlags -version  //Tells you the default GC being used.
+>java -XX:+PrintCommandLineFlags -version  //Tells you the default GC being used.
+
 Java Default GC's vs versions.
   1. Serial 		      -XX:+UseSerialGC			(Older Java)
   2. Parallel		      -XX:userParallelGC		(java-8)
   3. Mostly Concurrent
   	A. -XX:+UseConcMarkSweepGC						(java-9)
-  	B. -XX:+UseG1GC									(Introduced-6, Java-10)
+  	B. -XX:+UseG1GC								(Introduced-6, Java-10)
 
 * String de-duplication.
  -XX:+UseStringDeduplication //Use this only in combination with G1 algorithm.(Garbage First)
