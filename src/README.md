@@ -34,12 +34,17 @@ Java-8: 240MB, [InitialCodeCacheSize, ReservedCodeCacheSize, CodeCacheExpansionS
 
 
 >java -XX:-TieredCompilation -XX:+PrintCompilation Main 4000		 //Tired compilation
+
 >java -client -XX:-TieredCompilation -XX:+PrintCompilation Main 400      //client mode[client, server, d64]
+
 >java -XX:+PrintFlagsFinal						 //All commands.
 
 >jinfo -flag CICompilerCount 5908
+
 >java -XX:CICompilerCount=6 -XX:+PrintCompilation Main 500 -XX:CompileThreshold=1000
+
 >java -XX:CICompilerCount=6 -XX:+PrintCompilation -XX:PermSize=100 Main 5	//warning in Java-8
+
 >java -XX:CICompilerCount=6 -XX:-PrintCompilation -XX:MaxPermSize=100 Main      //warning in Java-8
 
 JVM which one to use.
