@@ -5,28 +5,18 @@ java.util.concurrent.streams
 
 INTERFACE:
 ----------
-BaseStream<T,S extends BaseStream<T,S>>
-
-Collector<T,A,R> 	
-
-DoubleStream 
-
-DoubleStream.Builder 
-
-IntStream 
-
-IntStream.Builder 	
-
-LongStream 	
-
-LongStream.Builder 	
-
-Stream<T> 	
-  
-Stream.Builder<T>
+1. BaseStream<T,S extends BaseStream<T,S>>
+2. Collector<T,A,R> 	
+3. DoubleStream 
+4. DoubleStream.Builder 
+5. IntStream 
+6. IntStream.Builder 	
+7. LongStream 	
+8. LongStream.Builder 	
+9. Stream<T> 	
+10. Stream.Builder<T>
 
 CLASS:
 ------
-Collectors 
-
-StreamSupport 	
+1. Collectors 
+2. StreamSupport 	
