@@ -33,16 +33,16 @@ Java-8: 240MB, [InitialCodeCacheSize, ReservedCodeCacheSize, CodeCacheExpansionS
 * 32 vs 64 bit JVM and when to choose what.
 
 
-$ java -XX:-TieredCompilation -XX:+PrintCompilation Main 4000		 //Tired compilation
-$ java -client -XX:-TieredCompilation -XX:+PrintCompilation Main 400 //client mode[client, server, d64]
-$ java -XX:+PrintFlagsFinal											 //All commands.
+>java -XX:-TieredCompilation -XX:+PrintCompilation Main 4000		 //Tired compilation
+>java -client -XX:-TieredCompilation -XX:+PrintCompilation Main 400      //client mode[client, server, d64]
+>java -XX:+PrintFlagsFinal						 //All commands.
 
-jinfo -flag CICompilerCount 5908
-java -XX:CICompilerCount=6 -XX:+PrintCompilation Main 500 -XX:CompileThreshold=1000
-java -XX:CICompilerCount=6 -XX:+PrintCompilation -XX:PermSize=100 Main 5	//warning in Java-8
-java -XX:CICompilerCount=6 -XX:-PrintCompilation -XX:MaxPermSize=100 Main   //warning in Java-8
+>jinfo -flag CICompilerCount 5908
+>java -XX:CICompilerCount=6 -XX:+PrintCompilation Main 500 -XX:CompileThreshold=1000
+>java -XX:CICompilerCount=6 -XX:+PrintCompilation -XX:PermSize=100 Main 5	//warning in Java-8
+>java -XX:CICompilerCount=6 -XX:-PrintCompilation -XX:MaxPermSize=100 Main      //warning in Java-8
 
-* JVM which one to use.
+JVM which one to use.
 -----------------------
 * if heap<3GB -> 32 bit JVM is better (Pointer = 32 bit)
 * if heap>4GB -> 64 bit JVM is better
@@ -51,7 +51,7 @@ java -XX:CICompilerCount=6 -XX:-PrintCompilation -XX:MaxPermSize=100 Main   //wa
 * 64 bit vm uses client+server compiler(c1+c2)
 Therefore, on server always use 64 bit JVM.
 
-* client flag:
+client flag:
 -------------
 >java -client -XX:+PrintCompilation Main 5000 //-client, -server, -d64 modes available
 * -d64 sometimes gives error in 32 bit os.
