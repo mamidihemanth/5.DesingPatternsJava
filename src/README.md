@@ -106,8 +106,8 @@ Chapter-14:
 * Mark and Sweep Alogrithm.
 * Generatoins in GarbageCollecions. (Genearational GC) Young/Old Generation
 Principles of GC:
- 1. Objects don't live longer.
- 2 If Objects live its likely to live longer.
+	1. Objects don't live longer.
+	2. If Objects live its likely to live longer.
 * No of Generatoins for GC is configurable. [Visual GC Plugin.]
 
 Chapter-15:
@@ -129,12 +129,12 @@ Java Default GC's vs versions.
   1. Serial 		      -XX:+UseSerialGC			(Older Java)
   2. Parallel		      -XX:userParallelGC		(java-8)
   3. Mostly Concurrent
-  	A. -XX:+UseConcMarkSweepGC						(java-9)
-  	B. -XX:+UseG1GC								(Introduced-6, Java-10)
+  	A. -XX:+UseConcMarkSweepGC				(java-9)
+  	B. -XX:+UseG1GC						(Introduced-6, Java-10)
 
 * String de-duplication.
  -XX:+UseStringDeduplication //Use this only in combination with G1 algorithm.(Garbage First)
- $ java -XX:+PrintCommandLineFlags -XX:+UseG1GC -XX:+UseStringDeduplication Main 10
+>java -XX:+PrintCommandLineFlags -XX:+UseG1GC -XX:+UseStringDeduplication Main 10
 JMC: Java Mission Control. [Open Source.]
 * Using a profiler. Eg:- JMC, Jprofiler, UR-Kit
 git clone .....
