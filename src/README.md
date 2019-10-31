@@ -150,7 +150,7 @@ Chapter-20, 21:
 	2. ArrayList
 	3. CopyOnWriteArrayList
 	4. Stack
-	5 . Vector
+	5. Vector
 	-------
 	6. AttributeList			M-Bean  Managed Bean.
 	7. RoleList
