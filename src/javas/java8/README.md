@@ -28,20 +28,20 @@ JAVA-Concurrency:
 =================
 ForkJoinPool.commonPool()
 
-CompletionStage: Its an interface for CompletableFuture
-StampedLock:     ?
-LongAdder: 		LongAdder vs AtomicLong
-LongAccumulator
-DoubleAdder
-DoubleAccumulator
-CountedCompleter:	?
-Executors.newWorkStealingPool()
-Executors.newWorkStealingPool(int)
+* CompletionStage: Its an interface for CompletableFuture
+* StampedLock:     ?
+* LongAdder: 		LongAdder vs AtomicLong
+* LongAccumulator
+* DoubleAdder
+* DoubleAccumulator
+* CountedCompleter:	?
+* Executors.newWorkStealingPool()
+* Executors.newWorkStealingPool(int)
 
-ConstructorReferences
-InstanceMethodReferences
-IntStream
-Reduce
+* ConstructorReferences
+* InstanceMethodReferences
+* IntStream
+* Reduce
 
 JAVA DOCS
 
