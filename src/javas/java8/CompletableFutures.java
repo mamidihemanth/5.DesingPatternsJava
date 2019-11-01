@@ -150,7 +150,7 @@ public class CompletableFutures {
 		//ts.usingCallable();
 		//ts.usingExecutor();
 		//ts.usingSimpleCompletable();
-		//usingCompletable();
+		usingCompletable();
 		//futuresWithTimeOut();
 	}
 
