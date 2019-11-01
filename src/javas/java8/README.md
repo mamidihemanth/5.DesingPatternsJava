@@ -4,8 +4,8 @@ Important Java Packages:
 2. [java.util.concurrent.atomic](https://github.com/siripuramjagadishraj1/5.DesingPatternsJava8/tree/master/src/javas/concurrent/atomic)
 3. [java.util.concurrent.locks](https://github.com/siripuramjagadishraj1/5.DesingPatternsJava8/tree/master/src/javas/concurrent/lock)
 4. [java.util.stream](https://github.com/siripuramjagadishraj1/5.DesingPatternsJava8/tree/master/src/javas/concurrent/streams)
-5. java.util.function
-6. java.time
+5. java.util.function [DurgaSoft]
+6. java.time [DurgaSoft]
 
 
 JAVA-8 Design Principles:
