@@ -12,7 +12,7 @@ import java.util.stream.StreamSupport;
 
 public class A_StreamTest {
 	/*
-	Note: We can't reuse Streams. (StreamSupport, Spliterator)
+	Note: We can't reuse Streams. (StreamSupport, Spliterator), but convert Iterator to stream and re use.
 	Stream Types: Stream<T>, IntStream, LongStream, DoubleStream
 
 	Stream Operations:
@@ -161,6 +161,7 @@ public class A_StreamTest {
 	    
 	    //Convert Iterators to Streams
  	    //StreamSupport, Spliterator
+	    System.out.println("======Convert Iterators to Streams=====");
 	    List<String> initialList = new ArrayList<String>();
 	    initialList.add("One");initialList.add("Two");initialList.add("Three");initialList.add("Four");
 	    List<String> newList = StreamSupport.stream(initialList.spliterator(), false).collect(Collectors.toList());
