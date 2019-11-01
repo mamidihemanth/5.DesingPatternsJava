@@ -65,6 +65,7 @@ public class A_StreamTest {
 			System.out.print(e + " - ");
 		}
 		// reduce
+		System.out.println("\nREDUCE : "+nameList.stream().reduce(0, (subtotal, element) -> {System.out.println(subtotal); return subtotal + element;}));
 		// nameList.stream().reduc
 		// min
 		System.out.println("\nMIN : " + nameList.stream().min((a, b) -> a.compareTo(b)));
